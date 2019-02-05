@@ -67,16 +67,23 @@ def show_operators():
 
 """
     Call search function, if response is -1 we
-    consider phone does not exist.
+    consider phone does not exist. We validate our input too.
 """
 def search():
     print("Search lowest cost by number: ")
     phone = input("Please, write a phone number: ")
-    low_cost = operators.low_cost(phone)
-    if low_cost == -1:
-        print('Prefix number does not exist registered')
-    else:
-        print('The lowest cost is {}'.format(low_cost))
+    try:
+        validated_phone = int(phone)
+        if validated_phone >= 0:
+            low_cost = operators.low_cost(str(validated_phone))
+            if low_cost == -1:
+                print('Prefix number does not exist registered')
+            else:
+                print('The lowest cost is {}'.format(low_cost))
+        else:
+            print('This is a negative number, try again')
+    except ValueError:
+        print('This is not an int, try again')
     input("Press [Enter] to continue...")
 
 """
@@ -98,11 +105,11 @@ def main():
             print(colorize(item, 'blue'), menuItems[item][1])   # Print the color option and its description
         choice = input(">> ")
         try:
-            if int(choice) < 0 : raise ValueError
+            if int(choice) < 0 or int(choice) > 3 : raise ValueError
             # Call the matching function
             menuItems[choice][0]()   
         except (ValueError, IndexError):
-            pass
+            print('This option does not exist, try again')
 
 if __name__ == "__main__":
     main()
