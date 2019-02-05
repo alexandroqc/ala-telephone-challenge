@@ -38,12 +38,14 @@ class OperatorsDirectory():
     def search(self, prefix_dict, phone, cost):
         if len(phone) >= 1 or len(prefix_dict) > 0 and cost > -1:
             new_prefix_dict = {}
-            for x in prefix_dict:
-                if phone[0] == x[0]:
-                    if len(x) > 1:
-                        new_prefix_dict[x[1:]] = prefix_dict[x]
+            for prefix in prefix_dict:
+                if phone[0] == prefix[0]: # We ask if the first character of the prefix match with our phone
+                    if len(prefix) > 1:
+                        # Creating a new prefix_dict which is needed for the next step
+                        new_prefix_dict[prefix[1:]] = prefix_dict[prefix]
                     else:
-                        cost = prefix_dict[x]
+                        # If there is a only prefix matching, we will take its cost (Only answer)
+                        cost = prefix_dict[prefix]
             if len(new_prefix_dict) == 1:
                 key, value = new_prefix_dict.popitem()
                 if len(key) > 1:
@@ -58,7 +60,8 @@ class OperatorsDirectory():
 
     """
         This function generate a list of costs of every operator 
-        and find the lowest. 
+        and find the lowest. Return -1 if search function can not 
+        find any prefix.
     """
     def low_cost(self, phone):
         costs = []

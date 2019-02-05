@@ -4,6 +4,9 @@ from telephone_operator import OperatorsDirectory
 
 class TestLowCostMethods(unittest.TestCase):
 
+    """
+        Default test taken from the pdf document.
+    """
     def test_default(self):
         map1 = {
             '1': 0.9,
@@ -27,6 +30,9 @@ class TestLowCostMethods(unittest.TestCase):
         operators.add_operator(map2)
         self.assertEqual(operators.low_cost('4673212345'), 1.0)
 
+    """
+        This validates if there is an only posible prefix.
+    """
     def test_uniq_value(self):
         map1 = {
             '1': 0.9,
@@ -51,6 +57,9 @@ class TestLowCostMethods(unittest.TestCase):
         operators.add_operator(map2)
         self.assertEqual(operators.low_cost('26834934'), 3.2)
 
+    """
+        This function validates if a phone does not match with any prefix
+    """
     def test_no_exist(self):
         map1 = {
             '1': 0.9,
@@ -90,6 +99,9 @@ class TestLowCostMethods(unittest.TestCase):
         operators.add_operator(map2)
         self.assertEqual(operators.low_cost('9348383434'), 0.1)
 
+    """
+        These functions evaluate if a phone does match with part of a prefix
+    """
     def test_default2(self):
         map1 = {
             '1': 0.9,
