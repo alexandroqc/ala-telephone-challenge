@@ -87,7 +87,7 @@ def main():
     choice = input(">> ")
     try:
       if int(choice) < 0 : raise ValueError
-        # Call the matching function
+      # Call the matching function
       menuItems[choice][0]()
     except (ValueError, IndexError):
       pass

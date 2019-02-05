@@ -17,22 +17,23 @@ class Operator():
 
   def show_operators(self):
     for operator in self.operators:
-      print('####################')
-      print(operator)
+      print('\n PREFIX \t \t COST') 
+      print('=============================')
+      for prefix in operator:
+        print('{} \t \t {}'.format(prefix, operator[prefix]))
 
   def search(self, map, phone, cost, large):
-    print("======================================")
-    print("Count: {}".format(len(map)))
+    # print("Count: {}".format(len(map)))
     if len(phone) >=1 or len(map) > 0 and cost > -1:
-      print("executing... "+phone);
+      # print("executing... "+phone);
       newmap = {}
       for x in map:
         if phone[0] == x[0]:
-          print("equal: "+ x)
+          # print("equal: "+ x)
           if len(x) > 1:
             newmap[x[1:]] = map[x]
           else:
-            print('Costo',map[x])
+            # print('Costo',map[x])
             cost = map[x]
       if len(newmap) == 1:
         key, value = newmap.popitem()
@@ -42,7 +43,7 @@ class Operator():
         else:
           return value
       else:
-        print(phone[1:]);
+        # print(phone[1:]);
         return self.search(newmap, phone[1:], cost, large)
     else:
       return cost
