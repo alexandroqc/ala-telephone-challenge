@@ -35,14 +35,14 @@ phone = '4683212345'
 print(operators.low_cost(phone))
 
 header = "\
-  _____ _____  _____ _____    _____ _           _ _                       \n\
- |_   _/ ____|/ ____/ ____|  / ____| |         | | |                      \n\
-   | || |    | (___| (___   | |    | |__   __ _| | | ___ _ __   __ _  ___ \n\
+  _____ _____  _____ _____    _____ _           _ _                        \n\
+ |_   _/ ____|/ ____/ ____|  / ____| |         | | |                       \n\
+   | || |    | (___| (___   | |    | |__   __ _| | | ___ _ __   __ _  ___  \n\
    | || |     \___ \\___ \  | |    | '_ \ / _` | | |/ _ \ '_ \ / _` |/ _ \ \n\
   _| || |____ ____) |___) | | |____| | | | (_| | | |  __/ | | | (_| |  __/ \n\
- |_____\_____|_____/_____/   \_____|_| |_|\__,_|_|_|\___|_| |_|\__, |\___|\n\
-                                                                __/ |     \n\
-                                                               |___/      \n"
+ |_____\_____|_____/_____/   \_____|_| |_|\__,_|_|_|\___|_| |_|\__, |\___| \n\
+                                                                __/ |      \n\
+                                                               |___/       \n"
 
  
 colors = {
@@ -62,8 +62,13 @@ def show_operators():
  
 def search():
   print("Search lowest cost by number: ")
-  phone = input("Please, write a phone number")
-  print(operators.low_cost(phone))
+  phone = input("Please, write a phone number: ")
+  low_cost = operators.low_cost(phone)
+  if low_cost == -1:
+    print('Prefix number does not exist registered')
+  else:
+    print('The lowest cost is {}'.format(low_cost))
+
   input("Press [Enter] to continue...")
  
 menuItems = { 

@@ -21,21 +21,21 @@ class Operator():
       print(operator)
 
   def search(self, map, phone, cost, large):
-    # print("======================================")
-    # print("Count: {}".format(len(map)))
+    print("======================================")
+    print("Count: {}".format(len(map)))
     if len(phone) >=1 or len(map) > 0 and cost > -1:
-      # print("executing... "+phone[0]);
+      print("executing... "+phone[0]);
       newmap = {}
       for x in map:
         if phone[0] == x[0]:
-          # print("equal: "+ x)
+          print("equal: "+ x)
           if len(x)!=1:
             newmap[x[1:]] = map[x]
           else:
             print('Costo',map[x])
             cost = map[x]
       if len(newmap) == 1:
-        # print(newmap)
+        print(newmap)
         key, value = newmap.popitem()
         return value
       else:
