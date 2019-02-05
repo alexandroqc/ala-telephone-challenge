@@ -1,12 +1,18 @@
-class Operator():
+class OperatorsDirectory():
     def __init__(self):
         self.operators = []
-
+    
+    """
+        Add an operator which is a list of prefixies and costs
+    """
     def add_operator(self, operator):
         self.operators.append(operator)
-
+    
+    """
+        Fill Operator function is not finished yet
+    """
     def fill_operator(self, operator):
-        prefixes_count = read('Number of prefixes: ')
+        prefixes_count = read('Number of prefixies: ')
         operator = {}
         for number in prefixes_count:
             prefix = str(read('Insert prefix: '))
@@ -14,6 +20,9 @@ class Operator():
             operator[prefix: cost]
         operators.append(operator)
 
+    """
+        Show a table which include prefixies and costs of each operator
+    """
     def show_operators(self):
         for operator in self.operators:
             print('\n PREFIX \t \t COST')
@@ -21,27 +30,36 @@ class Operator():
             for prefix in operator:
                 print('{} \t \t {}'.format(prefix, operator[prefix]))
 
-    def search(self, map, phone, cost, large):
-        if len(phone) >= 1 or len(map) > 0 and cost > -1:
-            newmap = {}
-            for x in map:
+    """
+        Search: This is a recursive function which asign a phone number to a 
+        prefix and returns its cost.
+        If a phone number does not match with any prefix we return cost -1
+    """
+    def search(self, prefix_dict, phone, cost, large):
+        if len(phone) >= 1 or len(prefix_dict) > 0 and cost > -1:
+            new_prefix_dict = {}
+            for x in prefix_dict:
                 if phone[0] == x[0]:
                     if len(x) > 1:
-                        newmap[x[1:]] = map[x]
+                        new_prefix_dict[x[1:]] = prefix_dict[x]
                     else:
-                        cost = map[x]
-            if len(newmap) == 1:
-                key, value = newmap.popitem()
+                        cost = prefix_dict[x]
+            if len(new_prefix_dict) == 1:
+                key, value = new_prefix_dict.popitem()
                 if len(key) > 1:
-                    newmap = {str(key): float(value)}
-                    return self.search(newmap, phone[1:], cost, large)
+                    new_prefix_dict = {str(key): float(value)}
+                    return self.search(new_prefix_dict, phone[1:], cost, large)
                 else:
                     return value
             else:
-                return self.search(newmap, phone[1:], cost, large)
+                return self.search(new_prefix_dict, phone[1:], cost, large)
         else:
             return cost
 
+    """
+        This function generate a list of costs of every operator 
+        and find the lowest. 
+    """
     def low_cost(self, phone):
         costs = []
         for operator in self.operators:

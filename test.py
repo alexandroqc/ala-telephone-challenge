@@ -1,5 +1,5 @@
 import unittest
-from telephone_operator import Operator
+from telephone_operator import OperatorsDirectory
 
 
 class TestLowCostMethods(unittest.TestCase):
@@ -22,7 +22,7 @@ class TestLowCostMethods(unittest.TestCase):
             '467': 1.0,
             '48': 1.2
         }
-        operators = Operator()
+        operators = OperatorsDirectory()
         operators.add_operator(map1)
         operators.add_operator(map2)
         self.assertEqual(operators.low_cost('4673212345'), 1.0)
@@ -46,7 +46,7 @@ class TestLowCostMethods(unittest.TestCase):
             '48': 1.2,
             '268': 3.2
         }
-        operators = Operator()
+        operators = OperatorsDirectory()
         operators.add_operator(map1)
         operators.add_operator(map2)
         self.assertEqual(operators.low_cost('26834934'), 3.2)
@@ -62,7 +62,7 @@ class TestLowCostMethods(unittest.TestCase):
             '4673': 0.9,
             '467320': 1.1
         }
-        operators = Operator()
+        operators = OperatorsDirectory()
         operators.add_operator(map1)
         self.assertEqual(operators.low_cost('9348383434'), -1)
 
@@ -85,7 +85,7 @@ class TestLowCostMethods(unittest.TestCase):
             '48': 1.2,
             '268': 3.2
         }
-        operators = Operator()
+        operators = OperatorsDirectory()
         operators.add_operator(map1)
         operators.add_operator(map2)
         self.assertEqual(operators.low_cost('9348383434'), 0.1)
@@ -108,7 +108,7 @@ class TestLowCostMethods(unittest.TestCase):
             '467': 1.0,
             '48': 1.2
         }
-        operators = Operator()
+        operators = OperatorsDirectory()
         operators.add_operator(map1)
         operators.add_operator(map2)
         self.assertEqual(operators.low_cost('4683212345'), 0.15)
@@ -131,7 +131,7 @@ class TestLowCostMethods(unittest.TestCase):
             '467': 1.0,
             '48': 1.2
         }
-        operators = Operator()
+        operators = OperatorsDirectory()
         operators.add_operator(map1)
         operators.add_operator(map2)
         self.assertEqual(operators.low_cost('234567890'), -1)
