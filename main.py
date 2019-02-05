@@ -38,8 +38,6 @@ header = "\
  |_____\_____|_____/_____/   \_____|_| |_|\__,_|_|_|\___|_| |_|\__, |\___| \n\
                                                                 __/ |      \n\
                                                                |___/       \n"
-
- 
 colors = {
     'blue': '\033[94m',
     'pink': '\033[95m',
@@ -67,14 +65,13 @@ def search():
     else:
         print('The lowest cost is {}'.format(low_cost))
     input("Press [Enter] to continue...")
- 
 
-menuItems = { 
+menuItems = {
     "1": [show_operators, "Show operators"],
     "2": [search, "Search telephone number"],
     "3": [exit, "Exit"]
 }
- 
+
 
 def main():
     while True:
@@ -90,6 +87,6 @@ def main():
             menuItems[choice][0]()
         except (ValueError, IndexError):
             pass
- 
+
 if __name__ == "__main__":
     main()

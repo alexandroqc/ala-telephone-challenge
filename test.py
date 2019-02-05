@@ -1,9 +1,9 @@
 import unittest
 from telephone_operator import Operator
 
+
 class TestLowCostMethods(unittest.TestCase):
 
-  
     def test_default(self):
         map1 = {
             '1': 0.9,
@@ -26,7 +26,6 @@ class TestLowCostMethods(unittest.TestCase):
         operators.add_operator(map1)
         operators.add_operator(map2)
         self.assertEqual(operators.low_cost('4673212345'), 1.0)
-
 
     def test_uniq_value(self):
         map1 = {
@@ -52,7 +51,6 @@ class TestLowCostMethods(unittest.TestCase):
         operators.add_operator(map2)
         self.assertEqual(operators.low_cost('26834934'), 3.2)
 
-
     def test_no_exist(self):
         map1 = {
             '1': 0.9,
@@ -67,7 +65,6 @@ class TestLowCostMethods(unittest.TestCase):
         operators = Operator()
         operators.add_operator(map1)
         self.assertEqual(operators.low_cost('9348383434'), -1)
-
 
     def test_no_exist2(self):
         map1 = {
@@ -93,7 +90,6 @@ class TestLowCostMethods(unittest.TestCase):
         operators.add_operator(map2)
         self.assertEqual(operators.low_cost('9348383434'), 0.1)
 
-
     def test_default2(self):
         map1 = {
             '1': 0.9,
@@ -116,7 +112,6 @@ class TestLowCostMethods(unittest.TestCase):
         operators.add_operator(map1)
         operators.add_operator(map2)
         self.assertEqual(operators.low_cost('4683212345'), 0.15)
-
 
     def test_default3(self):
         map1 = {

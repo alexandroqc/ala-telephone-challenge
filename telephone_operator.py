@@ -1,4 +1,3 @@
-
 class Operator():
     def __init__(self):
         self.operators = []
@@ -17,13 +16,13 @@ class Operator():
 
     def show_operators(self):
         for operator in self.operators:
-            print('\n PREFIX \t \t COST') 
+            print('\n PREFIX \t \t COST')
             print('=============================')
             for prefix in operator:
                 print('{} \t \t {}'.format(prefix, operator[prefix]))
 
     def search(self, map, phone, cost, large):
-        if len(phone) >=1 or len(map) > 0 and cost > -1:
+        if len(phone) >= 1 or len(map) > 0 and cost > -1:
             newmap = {}
             for x in map:
                 if phone[0] == x[0]:
@@ -42,7 +41,6 @@ class Operator():
                 return self.search(newmap, phone[1:], cost, large)
         else:
             return cost
-
 
     def low_cost(self, phone):
         costs = []
