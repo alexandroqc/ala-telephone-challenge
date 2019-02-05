@@ -1,7 +1,6 @@
 import os
 
 from telephone_operator import Operator
-# phone = '4673212345'
 
 import os
 
@@ -28,8 +27,6 @@ operators = Operator()
 operators.add_operator(map1)
 operators.add_operator(map2)
 
-# phone = '4673212345'
-# phone = '87097978'
 phone = '4683212345'
 
 print(operators.low_cost(phone))
