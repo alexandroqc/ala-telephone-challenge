@@ -8,7 +8,7 @@ class TestLowCostMethods(unittest.TestCase):
         Default test taken from the pdf document.
     """
     def test_default(self):
-        map1 = {
+        directory1 = {
             '1': 0.9,
             '268': 5.1,
             '46': 0.17,
@@ -18,7 +18,7 @@ class TestLowCostMethods(unittest.TestCase):
             '4673': 0.9,
             '467320': 1.1
         }
-        map2 = {
+        directory2 = {
             '1': 0.92,
             '44': 0.5,
             '46': 0.2,
@@ -26,15 +26,15 @@ class TestLowCostMethods(unittest.TestCase):
             '48': 1.2
         }
         operators = OperatorsDirectory()
-        operators.add_operator(map1)
-        operators.add_operator(map2)
+        operators.add_operator(directory1)
+        operators.add_operator(directory2)
         self.assertEqual(operators.low_cost('4673212345'), 1.0)
 
     """
         This validates if there is an only posible prefix.
     """
     def test_uniq_value(self):
-        map1 = {
+        directory1 = {
             '1': 0.9,
             '268': 5.1,
             '46': 0.17,
@@ -44,7 +44,7 @@ class TestLowCostMethods(unittest.TestCase):
             '4673': 0.9,
             '467320': 1.1
         }
-        map2 = {
+        directory2 = {
             '1': 0.92,
             '44': 0.5,
             '46': 0.2,
@@ -53,15 +53,15 @@ class TestLowCostMethods(unittest.TestCase):
             '268': 3.2
         }
         operators = OperatorsDirectory()
-        operators.add_operator(map1)
-        operators.add_operator(map2)
+        operators.add_operator(directory1)
+        operators.add_operator(directory2)
         self.assertEqual(operators.low_cost('26834934'), 3.2)
 
     """
         This function validates if a phone does not match with any prefix
     """
     def test_no_exist(self):
-        map1 = {
+        directory1 = {
             '1': 0.9,
             '268': 5.1,
             '46': 0.17,
@@ -72,11 +72,11 @@ class TestLowCostMethods(unittest.TestCase):
             '467320': 1.1
         }
         operators = OperatorsDirectory()
-        operators.add_operator(map1)
+        operators.add_operator(directory1)
         self.assertEqual(operators.low_cost('9348383434'), -1)
 
     def test_no_exist2(self):
-        map1 = {
+        directory1 = {
             '1': 0.9,
             '268': 5.1,
             '46': 0.17,
@@ -86,7 +86,7 @@ class TestLowCostMethods(unittest.TestCase):
             '4673': 0.9,
             '467320': 1.1
         }
-        map2 = {
+        directory2 = {
             '1': 0.92,
             '44': 0.5,
             '46': 0.2,
@@ -95,15 +95,15 @@ class TestLowCostMethods(unittest.TestCase):
             '268': 3.2
         }
         operators = OperatorsDirectory()
-        operators.add_operator(map1)
-        operators.add_operator(map2)
+        operators.add_operator(directory1)
+        operators.add_operator(directory2)
         self.assertEqual(operators.low_cost('9348383434'), 0.1)
 
     """
         These functions evaluate if a phone does match with part of a prefix
     """
     def test_default2(self):
-        map1 = {
+        directory1 = {
             '1': 0.9,
             '268': 5.1,
             '46': 0.17,
@@ -113,7 +113,7 @@ class TestLowCostMethods(unittest.TestCase):
             '4673': 0.9,
             '467320': 1.1
         }
-        map2 = {
+        directory2 = {
             '1': 0.92,
             '44': 0.5,
             '46': 0.2,
@@ -121,12 +121,12 @@ class TestLowCostMethods(unittest.TestCase):
             '48': 1.2
         }
         operators = OperatorsDirectory()
-        operators.add_operator(map1)
-        operators.add_operator(map2)
+        operators.add_operator(directory1)
+        operators.add_operator(directory2)
         self.assertEqual(operators.low_cost('4683212345'), 0.15)
 
     def test_default3(self):
-        map1 = {
+        directory1 = {
             '1': 0.9,
             '268': 5.1,
             '46': 0.17,
@@ -136,7 +136,7 @@ class TestLowCostMethods(unittest.TestCase):
             '4673': 0.9,
             '467320': 1.1
         }
-        map2 = {
+        directory2 = {
             '1': 0.92,
             '44': 0.5,
             '46': 0.2,
@@ -144,8 +144,8 @@ class TestLowCostMethods(unittest.TestCase):
             '48': 1.2
         }
         operators = OperatorsDirectory()
-        operators.add_operator(map1)
-        operators.add_operator(map2)
+        operators.add_operator(directory1)
+        operators.add_operator(directory2)
         self.assertEqual(operators.low_cost('234567890'), -1)
 
 if __name__ == '__main__':
