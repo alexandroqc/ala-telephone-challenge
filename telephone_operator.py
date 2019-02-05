@@ -16,7 +16,9 @@ class Operator():
     operators.append(operator)
 
   def show_operators(self):
-    print(operators)
+    for operator in self.operators:
+      print('####################')
+      print(operator)
 
   def search(self, map, phone, cost, large):
     # print("======================================")
