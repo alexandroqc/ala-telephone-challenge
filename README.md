@@ -1,5 +1,5 @@
 # ICSS AlaTest Telephone Challenge
-A little Python CLI program for ICSS Challenge
+A little Python CLI program for a ICSS Challenge
 
 ## Requirements
 * Python 3+
