@@ -35,7 +35,7 @@ class OperatorsDirectory():
         prefix and returns its cost.
         If a phone number does not match with any prefix we return cost -1
     """
-    def search(self, prefix_dict, phone, cost, large):
+    def search(self, prefix_dict, phone, cost):
         if len(phone) >= 1 or len(prefix_dict) > 0 and cost > -1:
             new_prefix_dict = {}
             for x in prefix_dict:
@@ -48,11 +48,11 @@ class OperatorsDirectory():
                 key, value = new_prefix_dict.popitem()
                 if len(key) > 1:
                     new_prefix_dict = {str(key): float(value)}
-                    return self.search(new_prefix_dict, phone[1:], cost, large)
+                    return self.search(new_prefix_dict, phone[1:], cost)
                 else:
                     return value
             else:
-                return self.search(new_prefix_dict, phone[1:], cost, large)
+                return self.search(new_prefix_dict, phone[1:], cost)
         else:
             return cost
 
@@ -63,7 +63,7 @@ class OperatorsDirectory():
     def low_cost(self, phone):
         costs = []
         for operator in self.operators:
-            resul = self.search(operator, phone, -1, len(phone))
+            resul = self.search(operator, phone, -1)
             if resul != -1:
                 costs.append(resul)
         if costs == []:
