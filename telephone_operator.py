@@ -9,7 +9,7 @@ class OperatorsDirectory():
         self.operators.append(operator)
     
     """
-        Fill Operator function is not finished yet
+        Fill - Operator - function is not finished yet
     """
     def fill_operator(self, operator):
         prefixes_count = read('Number of prefixies: ')
@@ -21,7 +21,7 @@ class OperatorsDirectory():
         operators.append(operator)
 
     """
-        Show a table which include prefixies and costs of each operator
+        Show a table which includes prefixies and costs of each operator
     """
     def show_operators(self):
         for operator in self.operators:
@@ -31,7 +31,7 @@ class OperatorsDirectory():
                 print('{} \t \t {}'.format(prefix, operator[prefix]))
 
     """
-        Search: This is a recursive function which asign a phone number to a 
+        Search: This is a recursive function which assigns a phone number to a 
         prefix and returns its cost.
         If a phone number does not match with any prefix we return cost -1
     """
@@ -44,7 +44,7 @@ class OperatorsDirectory():
                         # Creating a new prefix_dict which is needed for the next step
                         new_prefix_dict[prefix[1:]] = prefix_dict[prefix]
                     else:
-                        # If there is a only prefix matching, we will take its cost (Only answer)
+                        # If there is an only prefix matching, we will take its cost (Only answer)
                         cost = prefix_dict[prefix]
             if len(new_prefix_dict) == 1:
                 key, value = new_prefix_dict.popitem()
@@ -59,8 +59,8 @@ class OperatorsDirectory():
             return cost
 
     """
-        This function generate a list of costs of every operator 
-        and find the lowest. Return -1 if search function can not 
+        This function generates a list of costs of every operator 
+        and finds the lowest. It will return -1 if search function can not 
         find any prefix.
     """
     def low_cost(self, phone):

@@ -58,7 +58,7 @@ def colorize(string, color):
     return colors[color] + string + '\033[0m'
 
 """
-    Show operator function which show prefixies and costs.
+    Show operator function which shows prefixies and costs.
 """
 def show_operators():
     print("List of avaliable operators")
